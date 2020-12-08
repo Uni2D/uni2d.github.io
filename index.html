@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Uni2D</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="menuBar">
+		<div class="menuItem">
+			<button class="menuBtn">File</button>
+			<div class="menuContent">
+				<a href="javascript: menuFileNew();">New</a>
+				<a href="javascript: menuFileOpen();">Open</a>
+				<a href="javascript: menuFileSave();">Save</a>
+			</div>
+		</div>	
+		<div class="menuItem">
+			<button class="menuBtn">Edit</button>
+			<div class="menuContent">
+				<a href="javascript: menuEditCopy();">Copy</a>
+				<a href="javascript: menuEditDelete();">Delete</a>
+				<hr>
+				<a href="javascript: menuEditMove();">Move</a>
+				<a href="javascript: menuEditRotate();">Rotate</a>
+				<a href="javascript: menuEditScale();">Scale</a>
+			</div>
+		</div>
+		<div class="menuItem">
+			<button class="menuBtn">Create</button>
+			<div class="menuContent">
+				<a href="javascript: menuCreateLine();">Line</a>
+				<a href="javascript: menuCreateCircle();">Circle</a>
+				<a href="javascript: menuCreateEllipse();">Ellipse</a>
+				<a href="javascript: menuCreateRectangle();">Rectangle</a>
+				<a href="javascript: menuCreatePolygon();">Polygon</a>
+			</div>
+		</div>
+		<div class="menuItem">
+			<button class="menuBtn">Help</button>
+			<div class="menuContent">
+				<a href="javascript: menuHelpManual();">Manual</a>
+				<a href="javascript: menuHelpAbout();">About</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="sideBarLeft">
+		<div class="sideItem">
+			<a href="javascript: sideButtonMove();">
+				<img class="sideBtn" src="img/btn_Move.svg" alt="Move">
+			</a>
+		</div>
+		<div class="sideItem">
+			<a href="javascript: sideButtonRotate();">
+				<img class="sideBtn" src="img/btn_Rotate.svg" alt="Rotate">
+			</a>
+		</div>
+		<div class="sideItem">
+			<a href="javascript: sideButtonScale();">
+				<img class="sideBtn" src="img/btn_Scale.svg" alt="Scale">
+			</a>
+		</div>
+	</div>
+	
+	<div class="sideBarRight">
+		<div class="sideContainer">
+			<input type="range" id="colorSliderRed" class="sideSlider sideSliderRed" min="0" max="255" value="0" oninput="sideSliderInput()">
+		</div>
+		<div class="sideContainer">
+			<input type="range" id="colorSliderGreen" class="sideSlider sideSliderGreen" min="0" max="255" value="0" oninput="sideSliderInput()">
+		</div>
+		<div class="sideContainer">
+			<input type="range" id="colorSliderBlue" class="sideSlider sideSliderBlue" min="0" max="255" value="0" oninput="sideSliderInput()">
+		</div>
+		<div class="sideContainer">
+			<input type="color" id="colorPicker" class="sideColorPicker" oninput="sidePickerInput()">
+		</div>
+		<br><br>
+		<div class="sideContainer">
+			<label class="sideLabel">BORDER SETTINGS:</label>
+			<br><br>
+			<input type="color" id="borderColor" class="sideColorBorder">
+			<input type="number" id="borderWidth" class="sideNumber" min="1" max="100" value="1">
+		</div>
+	</div>
+	
+	<div>
+	<svg id="drawArea" class="drawArea" onclick="drawAreaClick(event)" onmousemove="drawAreaMove(event)"></svg>
+	</div>
+	
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
